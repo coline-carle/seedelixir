@@ -33,7 +33,7 @@ defmodule SeedelixirDecoderTest do
       :required => %{aethril: 3, felwort: 3},
       :max => %{aethril: 15},
       :seeds => %{seeds_quantity: 60},
-      :participants => %{participants: 6, participants_max: 10}
+      :participants => %{count: 6, max: 10}
     }
 
     assert Decoder.decode(text) == {:ok, informations}
@@ -50,7 +50,7 @@ defmodule SeedelixirDecoderTest do
       :required => %{aethril: 3, felwort: 3},
       :max => %{foxflower: 0, felwort: 0, any: 50},
       :seeds => %{seeds_quantity: 100},
-      :participants => %{participants: 10, participants_max: 10}
+      :participants => %{count: 10, max: 10}
     }
 
     assert Decoder.decode(text) == {:ok, informations}

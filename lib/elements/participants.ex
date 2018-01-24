@@ -58,12 +58,12 @@ defmodule Seedelixir.Element.Participants do
   end
 
   defp participants_value(rest, original, skip, stack, value) do
-    stack = [@participants_max, {:participants, value} | stack]
+    stack = [@participants_max, {:count, value} | stack]
     participants_max(rest, original, skip, stack, 0)
   end
 
   defp participants_max_value(_rest, _original, _skip, stack, value) do
-    [{:participants_max, value} | stack]
+    [{:max, value} | stack]
   end
 
   defp continue(rest, original, skip, stack, value) do
