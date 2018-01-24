@@ -6,7 +6,7 @@ defmodule SeedelixirElementSeedsTest do
   alias Seedelixir.Element.Seeds
 
   test "parse participants" do
-    seeds = %{:seeds_quantity => 50}
+    seeds = %{quantity: 50}
     assert Seeds.decode("50") == {:ok, seeds}
   end
 end

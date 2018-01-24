@@ -6,7 +6,7 @@ defmodule SeedelixirElementTimeTest do
   alias Seedelixir.Element.Time
 
   test "parse time" do
-    time = %{:hours => 22, :minutes => 00}
+    time = %{:hour => 22, :minute => 00}
     assert Time.decode("22:00 Server Time") == {:ok, time}
   end
 end

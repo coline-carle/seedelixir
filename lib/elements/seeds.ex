@@ -40,7 +40,7 @@ defmodule Seedelixir.Element.Seeds do
   end
 
   defp seeds_value(_rest, _original, _skip, _stack, value) do
-    [{:seeds_quantity, value}]
+    [{:quantity, value}]
   end
 
   defp continue(rest, original, skip, stack, value) do

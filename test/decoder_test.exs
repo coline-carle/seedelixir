@@ -19,7 +19,7 @@ defmodule SeedelixirDecoderTest do
   end
 
   test "normalize keys" do
-    informations = %{:title => "title", :seeds => %{seeds_quantity: 600}}
+    informations = %{:title => "title", :seeds => %{quantity: 600}}
     assert Decoder.decode("<title>\n[SEEDS:](600)") == {:ok, informations}
   end
 
@@ -29,10 +29,10 @@ defmodule SeedelixirDecoderTest do
     informations = %{
       :title => "CREATIVE TITLE HERE",
       :date => %{day: 1, month: 1, weekday: :monday},
-      :time => %{hours: 22, minutes: 0},
+      :time => %{hour: 22, minute: 0},
       :required => %{aethril: 3, felwort: 3},
       :max => %{aethril: 15},
-      :seeds => %{seeds_quantity: 60},
+      :seeds => %{quantity: 60},
       :participants => %{count: 6, max: 10}
     }
 
@@ -46,10 +46,10 @@ defmodule SeedelixirDecoderTest do
       :title => "100 Mixed",
       :title_tokens => [:mix],
       :date => %{day: 22, month: 1, weekday: :monday, year: 18},
-      :time => %{hours: 21, minutes: 0},
+      :time => %{hour: 21, minute: 0},
       :required => %{aethril: 3, felwort: 3},
       :max => %{foxflower: 0, felwort: 0, any: 50},
-      :seeds => %{seeds_quantity: 100},
+      :seeds => %{quantity: 100},
       :participants => %{count: 10, max: 10}
     }
 
