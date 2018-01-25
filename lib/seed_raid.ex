@@ -7,7 +7,7 @@ defmodule Seedelixir.SeedRaid do
   @type t :: %__MODULE__{
           title: String.t(),
           datetime: Datetime.t(),
-          participants: integer | nil,
+          participants: integer,
           size: integer,
           type: raid_type,
           max: list({herb | :any, integer}),
@@ -45,6 +45,7 @@ defmodule Seedelixir.SeedRaid do
     acc = [informations |> transform_style() | acc]
     acc = [informations |> transform_requirements() | acc]
     acc = [informations |> transform_max() | acc]
+    acc = [informations |> transform_participants() | acc]
     struct(__MODULE__, acc)
   end
 
@@ -64,8 +65,20 @@ defmodule Seedelixir.SeedRaid do
     {:requirements, requirements |> Map.to_list()}
   end
 
+  defp transform_participants(%{participants: %{count: count}}) do
+    {:participants, count}
+  end
+
+  defp transform_participants(_) do
+    {:participants, 0}
+  end
+
   defp transform_style(%{style: style}) do
     {:style, style}
+  end
+
+  defp transform_style(_) do
+    {:style, nil}
   end
 
   defp transform_type(%{title_tokens: [token | []]}) do

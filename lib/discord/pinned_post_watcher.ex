@@ -26,6 +26,9 @@ defmodule Seedelixir.Discord.PinnedPost.Watcher do
               data
               |> Poison.Encoder.encode(pretty: true)
 
+            raid = data |> Seedelixir.SeedRaid.transform()
+            Logger.info("#{inspect(raid)}")
+
             File.write("./pins/#{message.id}.json", bindata)
 
           _ ->

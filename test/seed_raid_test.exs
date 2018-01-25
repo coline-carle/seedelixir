@@ -26,6 +26,7 @@ defmodule SeedelixirSeedRaidTest do
     assert raid.style == :two_phase
     assert raid.requirements == [aethril: 3, felwort: 3]
     assert raid.max == [any: 50, felwort: 0, foxflower: 0]
+    assert raid.participants == 0
   end
 
   test "parse slr" do
@@ -36,6 +37,7 @@ defmodule SeedelixirSeedRaidTest do
       seeds: %{quantity: 100},
       style: :two_phase,
       required: %{felwort: 3, aethril: 3},
+      participants: %{count: 6, max: 10},
       max_tokens: [:starlight_rose]
     }
 
@@ -47,5 +49,6 @@ defmodule SeedelixirSeedRaidTest do
     assert raid.size == 100
     assert raid.style == :two_phase
     assert raid.requirements == [aethril: 3, felwort: 3]
+    assert raid.participants == 6
   end
 end
